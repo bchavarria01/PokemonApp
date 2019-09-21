@@ -1,0 +1,58 @@
+PODS:
+  - Alamofire (4.8.2)
+  - CryptoSwift (1.0.0)
+  - FittedSheets (1.4.4)
+  - Hero (1.4.0)
+  - NVActivityIndicatorView (4.7.0):
+    - NVActivityIndicatorView/Presenter (= 4.7.0)
+  - NVActivityIndicatorView/Presenter (4.7.0)
+  - SkyFloatingLabelTextField (3.7.0)
+  - SVProgressHUD (2.2.5)
+  - SwiftKeychainWrapper (3.4.0)
+  - SwiftLint (0.34.0)
+  - SwiftyJSON (5.0.0)
+  - XLPagerTabStrip (8.1.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - CryptoSwift
+  - FittedSheets
+  - Hero
+  - NVActivityIndicatorView
+  - SkyFloatingLabelTextField
+  - SVProgressHUD
+  - SwiftKeychainWrapper
+  - SwiftLint
+  - SwiftyJSON
+  - XLPagerTabStrip (~> 8.1)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CryptoSwift
+    - FittedSheets
+    - Hero
+    - NVActivityIndicatorView
+    - SkyFloatingLabelTextField
+    - SVProgressHUD
+    - SwiftKeychainWrapper
+    - SwiftLint
+    - SwiftyJSON
+    - XLPagerTabStrip
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
+  FittedSheets: f56b96c7bd81585d9a183c2a06abe176fa0b55db
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
+  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
+  SkyFloatingLabelTextField: 4b46db0ab1ccde0919cded29c656e6b4805eda04
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
+  SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  XLPagerTabStrip: 63166e21c9844fa30f2d95d30f335e73be5caf22
+
+PODFILE CHECKSUM: 0aea35bd38de15e978854a31312e25eec52b2c24
+
+COCOAPODS: 1.7.5
