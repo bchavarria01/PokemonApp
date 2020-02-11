@@ -8,15 +8,16 @@ target 'PokemonApp' do
   #Pods for PokemonApp
   pod 'XLPagerTabStrip', '~> 8.1'
   pod 'SwiftKeychainWrapper'
-  pod 'Alamofire', '~> 4.7'
   pod 'Hero'
-  pod 'SwiftLint'
-  pod 'SwiftyJSON'
-  pod 'CryptoSwift'
-  pod 'SkyFloatingLabelTextField'
-  pod 'SVProgressHUD'
-  pod 'NVActivityIndicatorView'
   pod 'FittedSheets'
+  pod 'Nuke'
+  pod 'Reusable'
+  pod 'IBAnimatable'
+  pod 'RxSwift', '~> 4'
+  pod 'RxCocoa', '~> 4'
+  pod 'Moya/RxSwift', '~> 13.0'
+  pod 'SwiftGen', '~> 6.0'
+  
   # Pods for PokemonApp
 end
 post_install do |installer_representation|
