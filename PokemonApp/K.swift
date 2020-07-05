@@ -33,7 +33,7 @@ enum K {
     // Moya
     enum MoyaDefaults {
         static let plugins: [PluginType] = [
-            NetworkLoggerPlugin(verbose: true),
+            NetworkLoggerPlugin(),
             RequestPlugin()
         ]
         static let secureMethods: [Moya.Method] = [.get, .post]

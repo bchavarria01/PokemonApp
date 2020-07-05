@@ -12,6 +12,21 @@ final class RegionsViewController: UIViewController {
     
     // MARK: - Components
     
+    lazy var topView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.cornerRadius(with: [.layerMaxXMaxYCorner, .layerMinXMaxYCorner], cornerRadii: 32)
+        return view
+    }()
+    
+    lazy var backView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemBlue
+        return view
+    }()
+    
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +39,7 @@ final class RegionsViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributtedText = NSMutableAttributedString.attributedString(
             "Regions",
-            font: .systemFont(ofSize: 14),
+            font: .boldSystemFont(ofSize: 16),
             color: .gray
         )
         label.attributedText = attributtedText
@@ -36,6 +51,8 @@ final class RegionsViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.showsVerticalScrollIndicator = false
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -50,8 +67,13 @@ final class RegionsViewController: UIViewController {
     
     private lazy var tableDelegate: RegionsViewControllerTableDelegate = {
         let tableDataSource = RegionsViewControllerTableDelegate()
+        tableDataSource.delegate = self
         return tableDataSource
     }()
+    
+    // MARK: - Attributes
+    
+    weak var delegate: RegionsViewDelegate?
     
     // MARK: - LifeCyle
     
@@ -65,26 +87,39 @@ final class RegionsViewController: UIViewController {
     // MARK: - Helpers
     
     private func setupLayout() {
-        view.addSubview(imageView)
-        view.addSubview(titleLabel)
+        topView.addSubview(imageView)
+        topView.addSubview(titleLabel)
+        
+        view.addSubview(backView)
+        view.addSubview(topView)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
             
+            backView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             imageView.heightAnchor.constraint(equalToConstant: 96),
+            
+            topView.topAnchor.constraint(equalTo: backView.topAnchor),
+            topView.leadingAnchor.constraint(equalTo: backView.leadingAnchor),
+            topView.trailingAnchor.constraint(equalTo: backView.trailingAnchor),
+            topView.heightAnchor.constraint(equalToConstant: 180),
         
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            imageView.topAnchor.constraint(equalTo: topView.topAnchor, constant: 16),
+            imageView.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 40),
+            imageView.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -40),
             
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            titleLabel.leadingAnchor.constraint(equalTo: topView.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: topView.trailingAnchor, constant: -16),
             
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 32),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            tableView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: backView.leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -16),
+            tableView.trailingAnchor.constraint(equalTo: backView.trailingAnchor),
         
         ])
     }
@@ -95,5 +130,10 @@ final class RegionsViewController: UIViewController {
         
         tableView.register(cellType: RegionsTableViewCell.self)
     }
-    
+}
+
+extension RegionsViewController: RegionsViewControllerDelegate {
+    func regionsViewControllerDidSelectRegion() {
+        delegate?.regionsViewControllerDidSelectRegion()
+    }
 }

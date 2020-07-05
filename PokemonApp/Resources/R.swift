@@ -20,7 +20,13 @@
 internal enum R {
   internal enum Base {
     internal static let _4 = ImageAsset(name: "4")
+    internal static let alola = ImageAsset(name: "alola")
     internal static let first = ImageAsset(name: "first")
+    internal static let galar = ImageAsset(name: "galar")
+    internal static let hoenn = ImageAsset(name: "hoenn")
+    internal static let johto = ImageAsset(name: "johto")
+    internal static let kalos = ImageAsset(name: "kalos")
+    internal static let kanto = ImageAsset(name: "kanto")
     internal static let logo = ImageAsset(name: "logo")
     internal static let map = ImageAsset(name: "map")
     internal static let player = ImageAsset(name: "player")
@@ -29,6 +35,8 @@ internal enum R {
     internal static let pokeballs = ImageAsset(name: "pokeballs")
     internal static let pokemonIcon = ImageAsset(name: "pokemon_icon")
     internal static let second = ImageAsset(name: "second")
+    internal static let sinnoh = ImageAsset(name: "sinnoh")
+    internal static let unova = ImageAsset(name: "unova")
     internal static let vector1 = ImageAsset(name: "vector (1)")
     internal static let vector10 = ImageAsset(name: "vector (10)")
     internal static let vector11 = ImageAsset(name: "vector (11)")
@@ -46,6 +54,16 @@ internal enum R {
     internal static let vector = ImageAsset(name: "vector")
   }
   internal enum Colors {
+    internal static let pokemonBlack = ColorAsset(name: "PokemonBlack")
+    internal static let pokemonBlue = ColorAsset(name: "PokemonBlue")
+    internal static let pokemonBrown = ColorAsset(name: "PokemonBrown")
+    internal static let pokemonGray = ColorAsset(name: "PokemonGray")
+    internal static let pokemonGreen = ColorAsset(name: "PokemonGreen")
+    internal static let pokemonPink = ColorAsset(name: "PokemonPink")
+    internal static let pokemonPurple = ColorAsset(name: "PokemonPurple")
+    internal static let pokemonRed = ColorAsset(name: "PokemonRed")
+    internal static let pokemonWhite = ColorAsset(name: "PokemonWhite")
+    internal static let pokemonYellow = ColorAsset(name: "PokemonYellow")
   }
   internal enum Icons {
     internal static let map = ImageAsset(name: "map")

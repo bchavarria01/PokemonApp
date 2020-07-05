@@ -10,10 +10,16 @@ import UIKit
 
 final class RegionsViewControllerTableDelegate: NSObject {
     
+    weak var delegate: RegionsViewControllerDelegate?
+    
 }
 
 extension RegionsViewControllerTableDelegate: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.regionsViewControllerDidSelectRegion()
     }
 }

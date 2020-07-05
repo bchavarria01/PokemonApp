@@ -1,7 +1,45 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G3u-lx-6W0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Pokemons View Controller-->
+        <scene sceneID="bNG-pD-2zV">
+            <objects>
+                <viewController id="G3u-lx-6W0" customClass="PokemonsViewController" customModule="PokemonApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ajL-5I-Ff2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fZ-1H-LPm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="256"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="256" id="LSL-hQ-avk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7fZ-1H-LPm" firstAttribute="leading" secondItem="fit-rX-X3p" secondAttribute="leading" id="BCs-t4-6Mm"/>
+                            <constraint firstItem="fit-rX-X3p" firstAttribute="trailing" secondItem="7fZ-1H-LPm" secondAttribute="trailing" id="KAs-g0-Ctz"/>
+                            <constraint firstItem="7fZ-1H-LPm" firstAttribute="top" secondItem="fit-rX-X3p" secondAttribute="top" id="tOE-gw-7Fu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fit-rX-X3p"/>
+                    </view>
+                    <connections>
+                        <outlet property="topView" destination="7fZ-1H-LPm" id="l2e-ph-inb"/>
+                        <outlet property="topViewHeigthAnchor" destination="LSL-hQ-avk" id="RY4-1h-fVV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDe-Dy-GvJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3" y="100"/>
+        </scene>
+    </scenes>
 </document>

@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import Reusable
 
-class PokemonsCollectionViewCell: UICollectionViewCell {
+class PokemonsCollectionViewCell: UICollectionViewCell, NibReusable {
 
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var pokemonName: UILabel!
+    @IBOutlet weak var pokemonImage: UIImageView!
+    
+    // MARK: - LifeCycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
 }

@@ -13,10 +13,10 @@ target 'PokemonApp' do
   pod 'Nuke'
   pod 'Reusable'
   pod 'IBAnimatable'
-  pod 'RxSwift', '~> 4'
-  pod 'RxCocoa', '~> 4'
-  pod 'Moya/RxSwift', '~> 13.0'
-  pod 'SwiftGen', '~> 6.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Moya/RxSwift'
+  pod 'SwiftGen'
   
   # Pods for PokemonApp
 end

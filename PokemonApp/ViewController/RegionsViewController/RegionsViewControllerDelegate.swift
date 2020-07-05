@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol RegionsViewControllerDelegate: class {
+    func regionsViewControllerDidSelectRegion()
+}

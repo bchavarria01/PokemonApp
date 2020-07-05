@@ -1,0 +1,72 @@
+PODS:
+  - Alamofire (4.9.1)
+  - FittedSheets (1.4.5)
+  - Hero (1.5.0)
+  - IBAnimatable (6.0.0)
+  - Moya/Core (13.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.1)
+  - Moya/RxSwift (13.0.1):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - Nuke (8.3.1)
+  - Result (4.1.0)
+  - Reusable (4.1.0):
+    - Reusable/Storyboard (= 4.1.0)
+    - Reusable/View (= 4.1.0)
+  - Reusable/Storyboard (4.1.0)
+  - Reusable/View (4.1.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
+  - SwiftGen (6.1.0)
+  - SwiftKeychainWrapper (3.4.0)
+  - XLPagerTabStrip (8.1.1)
+
+DEPENDENCIES:
+  - FittedSheets
+  - Hero
+  - IBAnimatable
+  - Moya/RxSwift (~> 13.0)
+  - Nuke
+  - Reusable
+  - RxCocoa (~> 4)
+  - RxSwift (~> 4)
+  - SwiftGen (~> 6.0)
+  - SwiftKeychainWrapper
+  - XLPagerTabStrip (~> 8.1)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - FittedSheets
+    - Hero
+    - IBAnimatable
+    - Moya
+    - Nuke
+    - Result
+    - Reusable
+    - RxCocoa
+    - RxSwift
+    - SwiftGen
+    - SwiftKeychainWrapper
+    - XLPagerTabStrip
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  FittedSheets: 7f754c9f6fb4ea330cbc57c652b594255f2a6819
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  IBAnimatable: d49f9fee0c401b5b08d31b77256b77fb067e0e92
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Nuke: 85fb80f8df0cb26c28d2f4e0cb7fb93bcd6548d3
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
+  SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
+  XLPagerTabStrip: 63166e21c9844fa30f2d95d30f335e73be5caf22
+
+PODFILE CHECKSUM: 9214c14bb9077bd08402caf04cce4127875aef45
+
+COCOAPODS: 1.8.4

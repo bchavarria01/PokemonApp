@@ -6,4 +6,24 @@
 //  Copyright © 2020 Byron Chavarría. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class PokemonDetailViewController: UIViewController {
+    
+    // MARK: - Components
+    
+    // MARK: - Attributes
+    
+    // MARK: - LifeCycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    // MARK: - Helpers
+    
+    private func setupLayout() {
+        
+    }
+    
+}

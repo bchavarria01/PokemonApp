@@ -19,6 +19,7 @@ extension RegionsViewControllerTableDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RegionsTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.selectionStyle = .none
         return cell
     }
 }

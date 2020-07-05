@@ -1,25 +1,26 @@
 PODS:
-  - Alamofire (4.9.1)
-  - FittedSheets (1.4.4)
-  - Hero (1.4.0)
-  - IBAnimatable (6.0.0)
-  - Moya/Core (13.0.1):
-    - Alamofire (~> 4.1)
-    - Result (~> 4.1)
-  - Moya/RxSwift (13.0.1):
+  - Alamofire (5.2.1)
+  - FittedSheets (1.4.6)
+  - Hero (1.5.0)
+  - IBAnimatable (6.1.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
     - Moya/Core
-    - RxSwift (~> 4.0)
-  - Nuke (8.3.1)
-  - Result (4.1.0)
-  - Reusable (4.1.0):
-    - Reusable/Storyboard (= 4.1.0)
-    - Reusable/View (= 4.1.0)
-  - Reusable/Storyboard (4.1.0)
-  - Reusable/View (4.1.0)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxSwift (4.5.0)
-  - SwiftGen (6.1.0)
+    - RxSwift (~> 5.0)
+  - Nuke (8.4.1)
+  - Reusable (4.1.1):
+    - Reusable/Storyboard (= 4.1.1)
+    - Reusable/View (= 4.1.1)
+  - Reusable/Storyboard (4.1.1)
+  - Reusable/View (4.1.1)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - SwiftGen (6.2.0)
   - SwiftKeychainWrapper (3.4.0)
   - XLPagerTabStrip (8.1.1)
 
@@ -27,47 +28,46 @@ DEPENDENCIES:
   - FittedSheets
   - Hero
   - IBAnimatable
-  - Moya/RxSwift (~> 13.0)
+  - Moya/RxSwift
   - Nuke
   - Reusable
-  - RxCocoa (~> 4)
-  - RxSwift (~> 4)
-  - SwiftGen (~> 6.0)
+  - RxCocoa
+  - RxSwift
+  - SwiftGen
   - SwiftKeychainWrapper
   - XLPagerTabStrip (~> 8.1)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - FittedSheets
-    - Hero
-    - SwiftKeychainWrapper
-    - XLPagerTabStrip
   trunk:
     - Alamofire
+    - FittedSheets
+    - Hero
     - IBAnimatable
     - Moya
     - Nuke
-    - Result
     - Reusable
     - RxCocoa
+    - RxRelay
     - RxSwift
     - SwiftGen
+    - SwiftKeychainWrapper
+    - XLPagerTabStrip
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  FittedSheets: f56b96c7bd81585d9a183c2a06abe176fa0b55db
-  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  IBAnimatable: d49f9fee0c401b5b08d31b77256b77fb067e0e92
-  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  Nuke: 85fb80f8df0cb26c28d2f4e0cb7fb93bcd6548d3
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  FittedSheets: 7f37fee2567d15dcde391f31eccbffb660ddebf0
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  IBAnimatable: 99dddd4c0625884a301ba3ecbc1615f8a390368e
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  Nuke: d780e3507a86b86c589ab3cc5cd302d5456f06fb
+  Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SwiftGen: 77e88c8609381660cc1084c5ba8e1dc6065de692
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
   XLPagerTabStrip: 63166e21c9844fa30f2d95d30f335e73be5caf22
 
-PODFILE CHECKSUM: 3a910c49a56067a32ce8219e87957954e962403d
+PODFILE CHECKSUM: 2d328c14cb05ee42df424dacee374e4305372f43
 
 COCOAPODS: 1.8.4

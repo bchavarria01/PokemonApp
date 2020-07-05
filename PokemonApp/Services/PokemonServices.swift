@@ -6,4 +6,14 @@
 //  Copyright © 2020 Byron Chavarría. All rights reserved.
 //
 
-import Foundation
+import RxSwift
+
+final class PokemonServices {
+    
+    // MARK: - Attributes
+    
+    // MARK: - LifeCycle
+    
+    // MARK: - Helpers
+    
+}

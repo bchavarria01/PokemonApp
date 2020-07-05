@@ -6,4 +6,11 @@
 //  Copyright © 2020 Byron Chavarría. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIView {
+    func cornerRadius(with corners: CACornerMask, cornerRadii: CGFloat) {
+        self.layer.cornerRadius = cornerRadii
+        self.layer.maskedCorners = corners
+    }
+}

@@ -17,6 +17,7 @@ final class WelcomeCoordinator: Coordinator {
     
     func start() {
         let controller = RegionsViewController()
+        controller.delegate = self
         presenter.pushViewController(controller, animated: true)
     }
     
@@ -24,5 +25,12 @@ final class WelcomeCoordinator: Coordinator {
          parentCoordinator: Coordinator) {
         self.presenter = presenter
         self.parentCoordinator = parentCoordinator
+    }
+}
+
+extension WelcomeCoordinator: RegionsViewDelegate {
+    func regionsViewControllerDidSelectRegion() {
+        let controller = PokemonsViewController.instantiate()
+        presenter.pushViewController(controller, animated: true)
     }
 }
