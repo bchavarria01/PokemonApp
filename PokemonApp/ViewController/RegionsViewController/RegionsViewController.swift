@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RxSwift
 
-final class RegionsViewController: UIViewController {
+final class RegionsViewController: BaseViewController {
     
     // MARK: - Components
     
@@ -74,6 +75,8 @@ final class RegionsViewController: UIViewController {
     // MARK: - Attributes
     
     weak var delegate: RegionsViewDelegate?
+    var viewModel: RegionsViewModel!
+    var disposeBag = DisposeBag()
     
     // MARK: - LifeCyle
     
@@ -81,10 +84,28 @@ final class RegionsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupLayout()
+        bindViewModel()
         setupTableView()
     }
     
     // MARK: - Helpers
+    
+    private func bindViewModel() {
+        showLoading(L10n.getRegionsMessage)
+        viewModel.getRegions()
+            .subscribe(onSuccess: { [weak self] data in
+                guard let self = self else { return }
+                self.dismiss(animated: true, completion: {
+                    self.tableDataSource.items = data.regions ?? []
+                    self.tableDelegate.items = data.regions ?? []
+                    self.tableView.reloadData()
+                })
+            }, onError: { [weak self] error in
+                self?.dismiss(animated: true, completion: {
+                    self?.showActionMessage(title: L10n.error, message: error.localizedDescription)
+                })
+            }).disposed(by: disposeBag)
+    }
     
     private func setupLayout() {
         topView.addSubview(imageView)
@@ -133,7 +154,7 @@ final class RegionsViewController: UIViewController {
 }
 
 extension RegionsViewController: RegionsViewControllerDelegate {
-    func regionsViewControllerDidSelectRegion() {
-        delegate?.regionsViewControllerDidSelectRegion()
+    func regionsViewControllerDidSelectRegion(with url: String, and name: String) {
+        delegate?.regionsViewControllerDidSelectRegion(with: url, and: name)
     }
 }

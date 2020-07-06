@@ -10,15 +10,20 @@ import UIKit
 
 final class RegionsViewControllerTableDataSource: NSObject {
     
+    // MARK: - Attributes
+    
+    var items: [Regions] = []
+    
 }
 
 extension RegionsViewControllerTableDataSource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RegionsTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.regionName?.text = items[indexPath.row].name
         cell.selectionStyle = .none
         return cell
     }

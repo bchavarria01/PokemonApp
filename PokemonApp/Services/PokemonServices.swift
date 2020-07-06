@@ -6,14 +6,44 @@
 //  Copyright © 2020 Byron Chavarría. All rights reserved.
 //
 
+import Moya
 import RxSwift
 
 final class PokemonServices {
     
-    // MARK: - Attributes
+    // MARK: - ProvidMoers
     
-    // MARK: - LifeCycle
+    private let provider = MoyaProvider<PokemonsProvider>(
+        plugins: K.MoyaDefaults.plugins
+    )
     
-    // MARK: - Helpers
+    // MARK: - Regions
+    
+    func getRegions() -> Single<RegionsResponseModel> {
+        return provider.rx
+            .request(.getPokemonsRegions)
+            .filterSuccessfulStatusCodes()
+            .map(RegionsResponseModel.self)
+            .asObservable()
+            .asSingle()
+    }
+    
+    func getRegionsInfo(regionUrl: URL) -> Single<RegionsInfoResponseModel> {
+        return provider.rx
+            .request(.getRegionsInfo(regionUrl: regionUrl))
+            .filterSuccessfulStatusAndRedirectCodes()
+            .map(RegionsInfoResponseModel.self)
+            .asObservable()
+            .asSingle()
+    }
+    
+    func getPokedex(pokedexUrl: URL) -> Single<PokedexResponseModel> {
+        return provider.rx
+            .request(.getPokedex(pokedexUrl: pokedexUrl))
+            .filterSuccessfulStatusAndRedirectCodes()
+            .map(PokedexResponseModel.self)
+            .asObservable()
+            .asSingle()
+    }
     
 }

@@ -64,6 +64,7 @@ internal enum R {
     internal static let pokemonRed = ColorAsset(name: "PokemonRed")
     internal static let pokemonWhite = ColorAsset(name: "PokemonWhite")
     internal static let pokemonYellow = ColorAsset(name: "PokemonYellow")
+    internal static let pokemonBlueDark = ColorAsset(name: "pokemonBlueDark")
   }
   internal enum Icons {
     internal static let map = ImageAsset(name: "map")

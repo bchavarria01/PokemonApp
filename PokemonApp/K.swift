@@ -18,8 +18,10 @@ enum K {
     }
     
     enum PokemonServices {
-        static let Pokemons = URL(string: "\(baseURL)/pokemon?&limit=964")!
-        static let region = URL(string: "\(baseURL)/region")!
+        static let pokemons = URL(string: "\(baseURL)/pokemon?&limit=964")!
+        static let region = URL(string: "\(baseURL)region")!
+        static let regionsInfo = URL(string: "\(baseURL)/region/")!
+        static let pokedex = URL(string: "\(baseURL)/pokedex/")!
     }
     
     // Nuke

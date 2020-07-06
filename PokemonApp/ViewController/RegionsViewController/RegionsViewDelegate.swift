@@ -9,5 +9,5 @@
 import Foundation
 
 protocol RegionsViewDelegate: class {
-    func regionsViewControllerDidSelectRegion()
+    func regionsViewControllerDidSelectRegion(with regionUrl: String, and name: String)
 }

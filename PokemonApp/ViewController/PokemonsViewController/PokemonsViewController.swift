@@ -8,8 +8,9 @@
 
 import UIKit
 import Reusable
+import RxSwift
 
-final class PokemonsViewController: UIViewController, StoryboardBased {
+final class PokemonsViewController: BaseViewController, StoryboardBased {
     
     // MARK: - Components
     
@@ -24,7 +25,6 @@ final class PokemonsViewController: UIViewController, StoryboardBased {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.image = R.Base.galar.image
         return imageView
     }()
     
@@ -39,7 +39,6 @@ final class PokemonsViewController: UIViewController, StoryboardBased {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Galar"
         label.textColor = .black
         return label
     }()
@@ -70,17 +69,18 @@ final class PokemonsViewController: UIViewController, StoryboardBased {
     private lazy var collectionDataSource: PokemonsViewControllerCollectionDataSource = {
         return PokemonsViewControllerCollectionDataSource()
     }()
-    
-    // MARK: Delegates
-    
-    private lazy var collectionDelegate: PokemonsViewControllerCollectionDelegate = {
-        return PokemonsViewControllerCollectionDelegate()
-    }()
+
     
     // MARK: - Attributes
     
     var previousOffsetState: CGFloat = 0
     var coverHeightConstraint: NSLayoutConstraint?
+    weak var delegate: PokemonsViewControllerDelegate?
+    var viewModel: PokemonsViewModel!
+    var regionUrl: String?
+    var disposeBag = DisposeBag()
+    var regionName: String?
+    var items: [PokemonEntry] = []
     
     // MARK: - IBOutLetss
     
@@ -94,10 +94,61 @@ final class PokemonsViewController: UIViewController, StoryboardBased {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupLayout()
+        bindViewModel()
         setupCollectionView()
+        titleLabel.text = self.regionName!
+        
+        var image: UIImage {
+            switch regionName {
+                case "kanto": return R.Base.kanto.image
+                case "johto": return R.Base.johto.image
+                case "hoenn": return R.Base.hoenn.image
+                case "unova": return R.Base.unova.image
+                case "kalos": return R.Base.kalos.image
+                case "alola": return R.Base.alola.image
+                case "sinnoh": return R.Base.sinnoh.image
+                default: return R.Base.galar.image
+            }
+        }
+        imageView.image = image
     }
     
     // MARK: - Helpers
+    
+    private func bindViewModel() {
+        showLoading("\(L10n.getPokemonsMessage) \(regionName!)")
+        viewModel.getPokemonsPerRegion(regionsUrl: regionUrl ?? "")
+            .subscribe(
+                onSuccess: { [weak self] data in
+                    guard let self = self else { return }
+                    self.viewModel.getPokedexInfop(pokedexUrl: data.pokedexes?[0].url ?? "")
+                    .subscribe(
+                        onSuccess: { [weak self] res in
+                            guard let self = self else { return }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                                self.dismiss(animated: true, completion: {
+                                    self.items = res.pokemonEntries ?? []
+                                    self.collectionDataSource.items = res.pokemonEntries ?? []
+                                    self.collectionView.reloadData()
+                                })
+                            })
+                        }, onError: { [weak self] error in
+                            guard let self = self else { return }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                                self.dismiss(animated: true, completion: {
+                                    self.showActionMessage(title: L10n.error, message: error.localizedDescription)
+                                })
+                            })
+                    }).disposed(by: self.disposeBag)
+                }, onError: { [weak self] error in
+                    guard let self = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                        self.dismiss(animated: true, completion: {
+                            self.showActionMessage(title: L10n.error, message: error.localizedDescription)
+                        })
+                    })
+            }).disposed(by: disposeBag)
+    }
     
     private func setupLayout() {
         
@@ -162,30 +213,26 @@ final class PokemonsViewController: UIViewController, StoryboardBased {
 // MARK: - UIScrollViewDelegate
 
 extension PokemonsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        delegate?.PokemonsViewControllerDidSelectPokemon(with: items[indexPath.row].pokemonSpecies?.url ?? "")
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 104, height: 104)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         // Collapse View
         let offsetDiff =  previousOffsetState - scrollView.contentOffset.y
         previousOffsetState = scrollView.contentOffset.y
         let newHeight = topViewHeigthAnchor.constant + offsetDiff
-        
         if newHeight > 0 {
             topViewHeigthAnchor.constant = newHeight
         }
-        
         if scrollView.contentOffset.y > 256 {
             topViewHeigthAnchor.constant = 0
         }
-        
         // Rotate image
         let topOffset = scrollView.contentOffset.y
         let angle = -topOffset * 2 * CGFloat(Double.pi / 180)

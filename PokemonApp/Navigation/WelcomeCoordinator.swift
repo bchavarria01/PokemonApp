@@ -18,6 +18,8 @@ final class WelcomeCoordinator: Coordinator {
     func start() {
         let controller = RegionsViewController()
         controller.delegate = self
+        let service = PokemonServices()
+        controller.viewModel = RegionsViewModel(pokemonService: service)
         presenter.pushViewController(controller, animated: true)
     }
     
@@ -29,8 +31,19 @@ final class WelcomeCoordinator: Coordinator {
 }
 
 extension WelcomeCoordinator: RegionsViewDelegate {
-    func regionsViewControllerDidSelectRegion() {
+    func regionsViewControllerDidSelectRegion(with regionUrl: String, and name: String) {
         let controller = PokemonsViewController.instantiate()
+        let service = PokemonServices()
+        controller.viewModel = PokemonsViewModel(pokemonService: service)
+        controller.delegate = self
+        controller.regionUrl = regionUrl
+        controller.regionName = name
         presenter.pushViewController(controller, animated: true)
+    }
+}
+
+extension WelcomeCoordinator: PokemonsViewControllerDelegate {
+    func PokemonsViewControllerDidSelectPokemon(with pokemonUrl: String) {
+        
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 final class RegionsViewControllerTableDelegate: NSObject {
     
     weak var delegate: RegionsViewControllerDelegate?
+    var items: [Regions] = []
     
 }
 
@@ -20,6 +21,6 @@ extension RegionsViewControllerTableDelegate: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.regionsViewControllerDidSelectRegion()
+        delegate?.regionsViewControllerDidSelectRegion(with: items[indexPath.row].url ?? "", and: items[indexPath.row].name ?? "")
     }
 }

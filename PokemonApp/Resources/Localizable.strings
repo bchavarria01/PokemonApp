@@ -5,3 +5,9 @@
 //  Created by Byron Chavarría on 12/21/19.
 //  Copyright © 2019 Byron Chavarría. All rights reserved.
 //
+"loadingTitle" = "Loading...";
+"getRegionsMessage" = "Getting region's info";
+"ok" = "Ok!";
+"error" = "Error!";
+"getPokemonsMessage" = "Getting pokemon from ";
+"getPokemonDetail" = "Geeting pokemon's detail info";

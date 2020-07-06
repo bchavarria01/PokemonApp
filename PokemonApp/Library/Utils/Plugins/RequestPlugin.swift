@@ -12,22 +12,20 @@ import Moya
 final class RequestPlugin: PluginType {
     
     func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
-//        let isSecureMethod = K.MoyaDefaults.secureMethods.contains(target.method)
-//        guard isSecureMethod else { return request }
-        switch target.task {
-        case let .requestParameters(parameters, _):
-            var secureRequest = request
-            do {
-                secureRequest.httpBody = try JSONSerialization.data(
-                    withJSONObject: parameters,
-                    options: .prettyPrinted
-                )
-                
-                return secureRequest
-            } catch {}
-            
-        default: break
-        }
+//        switch target.task {
+//        case let .requestParameters(parameters, _):
+//            var secureRequest = request
+//            do {
+//                secureRequest.httpBody = try JSONSerialization.data(
+//                    withJSONObject: parameters,
+//                    options: .prettyPrinted
+//                )
+//
+//                return secureRequest
+//            } catch {}
+//            
+//        default: break
+//        }
         return request
     }
     
