@@ -10,3 +10,6 @@
   * Adding PokemonsProvider
   * Adding petitions for get Regions and get Pokemons per region
   * Improve some code
+
+## [Add, UPDATE] 2020-07-09 08:00
+  * Adding pokemons detail page

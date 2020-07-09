@@ -11,7 +11,7 @@ import UIKit
 final class RegionsViewControllerTableDelegate: NSObject {
     
     weak var delegate: RegionsViewControllerDelegate?
-    var items: [Regions] = []
+    var items: [PokemonResponse] = []
     
 }
 

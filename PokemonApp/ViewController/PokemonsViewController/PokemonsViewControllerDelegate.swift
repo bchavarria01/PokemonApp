@@ -9,5 +9,5 @@
 import Foundation
 
 protocol PokemonsViewControllerDelegate: class {
-    func PokemonsViewControllerDidSelectPokemon(with pokemonUrl: String)
+    func PokemonsViewControllerDidSelectPokemon(with pokemonUrl: String, and imageUrl: String)
 }

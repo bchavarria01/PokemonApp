@@ -11,3 +11,8 @@
 "error" = "Error!";
 "getPokemonsMessage" = "Getting pokemon from ";
 "getPokemonDetail" = "Geeting pokemon's detail info";
+"pokemonName" = "Pokemon name: ";
+"pokemonBaseHappiness" = "Base Happiness: ";
+"pokemonCaptureRate" = "Capture rate: ";
+"pokemonGeneration" = "Generation: ";
+"getHabitatInformation" = "Geting habitat information";

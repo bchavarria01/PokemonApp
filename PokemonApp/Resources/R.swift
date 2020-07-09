@@ -54,6 +54,12 @@ internal enum R {
     internal static let vector = ImageAsset(name: "vector")
   }
   internal enum Colors {
+    internal static let black = ColorAsset(name: "Black")
+    internal static let blue = ColorAsset(name: "Blue")
+    internal static let brown = ColorAsset(name: "Brown")
+    internal static let gray = ColorAsset(name: "Gray")
+    internal static let green = ColorAsset(name: "Green")
+    internal static let pink = ColorAsset(name: "Pink")
     internal static let pokemonBlack = ColorAsset(name: "PokemonBlack")
     internal static let pokemonBlue = ColorAsset(name: "PokemonBlue")
     internal static let pokemonBrown = ColorAsset(name: "PokemonBrown")
@@ -64,7 +70,10 @@ internal enum R {
     internal static let pokemonRed = ColorAsset(name: "PokemonRed")
     internal static let pokemonWhite = ColorAsset(name: "PokemonWhite")
     internal static let pokemonYellow = ColorAsset(name: "PokemonYellow")
-    internal static let pokemonBlueDark = ColorAsset(name: "pokemonBlueDark")
+    internal static let purple = ColorAsset(name: "Purple")
+    internal static let red = ColorAsset(name: "Red")
+    internal static let white = ColorAsset(name: "White")
+    internal static let yellow = ColorAsset(name: "Yellow")
   }
   internal enum Icons {
     internal static let map = ImageAsset(name: "map")

@@ -13,6 +13,8 @@ import Foundation
 internal enum L10n {
   /// Error!
   internal static let error = L10n.tr("Localizable", "error")
+  /// Geting habitat information
+  internal static let getHabitatInformation = L10n.tr("Localizable", "getHabitatInformation")
   /// Geeting pokemon's detail info
   internal static let getPokemonDetail = L10n.tr("Localizable", "getPokemonDetail")
   /// Getting pokemon from 
@@ -23,6 +25,14 @@ internal enum L10n {
   internal static let loadingTitle = L10n.tr("Localizable", "loadingTitle")
   /// Ok!
   internal static let ok = L10n.tr("Localizable", "ok")
+  /// Base Happiness: 
+  internal static let pokemonBaseHappiness = L10n.tr("Localizable", "pokemonBaseHappiness")
+  /// Capture rate: 
+  internal static let pokemonCaptureRate = L10n.tr("Localizable", "pokemonCaptureRate")
+  /// Generation: 
+  internal static let pokemonGeneration = L10n.tr("Localizable", "pokemonGeneration")
+  /// Pokemon name: 
+  internal static let pokemonName = L10n.tr("Localizable", "pokemonName")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

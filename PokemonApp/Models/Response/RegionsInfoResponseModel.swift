@@ -10,11 +10,11 @@ import Foundation
 
 struct RegionsInfoResponseModel: Codable {
     let id: Int?
-    let locations: [MainGeneration]?
-    let mainGeneration: MainGeneration?
+    let locations: [PokemonResponse]?
+    let mainGeneration: PokemonResponse?
     let name: String?
     let names: [Name]?
-    let pokedexes, versionGroups: [MainGeneration]?
+    let pokedexes, versionGroups: [PokemonResponse]?
 
     enum CodingKeys: String, CodingKey {
         case id, locations
@@ -24,14 +24,8 @@ struct RegionsInfoResponseModel: Codable {
     }
 }
 
-// MARK: - MainGeneration
-struct MainGeneration: Codable {
-    let name: String?
-    let url: String?
-}
-
 // MARK: - Name
 struct Name: Codable {
-    let language: MainGeneration?
+    let language: PokemonResponse?
     let name: String?
 }

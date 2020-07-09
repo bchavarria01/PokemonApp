@@ -43,7 +43,12 @@ extension WelcomeCoordinator: RegionsViewDelegate {
 }
 
 extension WelcomeCoordinator: PokemonsViewControllerDelegate {
-    func PokemonsViewControllerDidSelectPokemon(with pokemonUrl: String) {
-        
+    func PokemonsViewControllerDidSelectPokemon(with pokemonUrl: String, and imageUrl: String) {
+        let controller = PokemonDetailViewController()
+        let service = PokemonServices()
+        controller.pokemonImageUrl = imageUrl
+        controller.pokemonDetailUrl = pokemonUrl
+        controller.viewModel = PokemonDetailViewModel(pokemonService: service)
+        presenter.pushViewController(controller, animated: true)
     }
 }

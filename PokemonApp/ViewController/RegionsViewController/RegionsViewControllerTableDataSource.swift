@@ -9,11 +9,8 @@
 import UIKit
 
 final class RegionsViewControllerTableDataSource: NSObject {
-    
     // MARK: - Attributes
-    
-    var items: [Regions] = []
-    
+    var items: [PokemonResponse] = []
 }
 
 extension RegionsViewControllerTableDataSource: UITableViewDataSource {
@@ -23,7 +20,7 @@ extension RegionsViewControllerTableDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RegionsTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.regionName?.text = items[indexPath.row].name
+        cell.regionName?.text = items[indexPath.row].name?.capitalizingFirstLetter() ?? ""
         cell.selectionStyle = .none
         return cell
     }

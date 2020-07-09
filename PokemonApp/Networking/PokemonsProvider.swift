@@ -12,7 +12,8 @@ enum PokemonsProvider {
     case getPokemonsRegions
     case getRegionsInfo(regionUrl: URL)
     case getPokedex(pokedexUrl: URL)
-    case getPokemonDetail
+    case getPokemonDetail(pokemonUrl: URL)
+    case getHabitatInformation(habitatUrl: URL)
 }
 
 extension PokemonsProvider: TargetType {
@@ -31,8 +32,11 @@ extension PokemonsProvider: TargetType {
         case let .getRegionsInfo(regionUrl):
             return regionUrl
             
-        case .getPokemonDetail:
-            return K.PokemonServices.pokedex
+        case let .getPokemonDetail(pokemonUrl):
+            return pokemonUrl
+            
+        case let.getHabitatInformation(habitatUrl):
+            return habitatUrl
         }
     }
     

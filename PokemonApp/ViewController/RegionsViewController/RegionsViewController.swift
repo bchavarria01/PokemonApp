@@ -32,6 +32,7 @@ final class RegionsViewController: BaseViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = R.Icons.pokemonIcon.image
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     

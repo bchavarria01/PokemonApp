@@ -13,7 +13,7 @@ struct RegionsResponseModel: Decodable {
     let count: Int?
     let next: String?
     let previous: String?
-    let regions: [Regions]?
+    let regions: [PokemonResponse]?
 
     // MARK: - Keys
     
@@ -24,15 +24,3 @@ struct RegionsResponseModel: Decodable {
         case regions = "results"
     }
 }
-
-// MARK: - Result
-struct Regions: Decodable {
-    let name: String?
-    let url: String?
-
-    private enum CodingKeys: String, CodingKey {
-        case name = "name"
-        case url = "url"
-    }
-}
-

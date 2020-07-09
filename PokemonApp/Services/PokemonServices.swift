@@ -46,4 +46,22 @@ final class PokemonServices {
             .asSingle()
     }
     
+    func getPokemonDetail(pokemonUrl: URL) -> Single<PokemonDetailResponseModel> {
+        return provider.rx
+            .request(.getPokemonDetail(pokemonUrl: pokemonUrl))
+            .filterSuccessfulStatusAndRedirectCodes()
+            .map(PokemonDetailResponseModel.self)
+            .asObservable()
+            .asSingle()
+    }
+    
+    func getHabitatInformation(habitatUrl: URL) -> Single<HabitatResponseModel> {
+        return provider.rx
+            .request(.getHabitatInformation(habitatUrl: habitatUrl))
+            .filterSuccessfulStatusAndRedirectCodes()
+            .map(HabitatResponseModel.self)
+            .asObservable()
+            .asSingle()
+    }
+    
 }

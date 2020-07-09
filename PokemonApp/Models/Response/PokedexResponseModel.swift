@@ -14,10 +14,10 @@ struct PokedexResponseModel: Codable {
     let id: Int?
     let isMainSeries: Bool?
     let name: String?
-    let names: [Name1]?
+    let names: [Name]?
     let pokemonEntries: [PokemonEntry]?
-    let region: Region?
-    let versionGroups: [Region]?
+    let region: PokemonResponse?
+    let versionGroups: [PokemonResponse]?
 
     enum CodingKeys: String, CodingKey {
         case descriptions, id
@@ -32,7 +32,7 @@ struct PokedexResponseModel: Codable {
 // MARK: - Description
 struct Description: Codable {
     let descriptionDescription: String?
-    let language: Region?
+    let language: PokemonResponse?
 
     enum CodingKeys: String, CodingKey {
         case descriptionDescription = "description"
@@ -40,22 +40,10 @@ struct Description: Codable {
     }
 }
 
-// MARK: - Region
-struct Region: Codable {
-    let name: String?
-    let url: String?
-}
-
-// MARK: - Name
-struct Name1: Codable {
-    let language: Region?
-    let name: String?
-}
-
 // MARK: - PokemonEntry
 struct PokemonEntry: Codable {
     let entryNumber: Int?
-    let pokemonSpecies: Region?
+    let pokemonSpecies: PokemonResponse?
 
     enum CodingKeys: String, CodingKey {
         case entryNumber = "entry_number"

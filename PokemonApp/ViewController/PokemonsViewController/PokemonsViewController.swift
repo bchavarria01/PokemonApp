@@ -215,7 +215,8 @@ final class PokemonsViewController: BaseViewController, StoryboardBased {
 extension PokemonsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.PokemonsViewControllerDidSelectPokemon(with: items[indexPath.row].pokemonSpecies?.url ?? "")
+        let url = items[indexPath.row].pokemonSpecies?.url ?? ""
+        delegate?.PokemonsViewControllerDidSelectPokemon(with: url, and: url.getImageUrl())
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
