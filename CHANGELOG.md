@@ -13,3 +13,9 @@
 
 ## [Add, UPDATE] 2020-07-09 08:00
   * Adding pokemons detail page
+
+## [Add, UPDATE] 2020-07-15 15:00
+  * Adding Firebase for Authentication
+  * Integrate email+password authentication
+  * Update UI
+  * Change some validations

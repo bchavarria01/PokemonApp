@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import FirebaseAuth
 
 final class RegionsViewController: BaseViewController {
     
@@ -69,15 +70,15 @@ final class RegionsViewController: BaseViewController {
     
     private lazy var tableDelegate: RegionsViewControllerTableDelegate = {
         let tableDataSource = RegionsViewControllerTableDelegate()
-        tableDataSource.delegate = self
         return tableDataSource
     }()
     
     // MARK: - Attributes
     
-    weak var delegate: RegionsViewDelegate?
+    weak var delegate: RegionsViewControllerDelegate?
     var viewModel: RegionsViewModel!
     var disposeBag = DisposeBag()
+    var handle: NSObjectProtocol?
     
     // MARK: - LifeCyle
     
@@ -87,6 +88,26 @@ final class RegionsViewController: BaseViewController {
         setupLayout()
         bindViewModel()
         setupTableView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+              // The user's ID, unique to the Firebase project.
+              // Do NOT use this value to authenticate with your backend server,
+              // if you have one. Use getTokenWithCompletion:completion: instead.
+              let uid = user.uid
+              let email = user.email
+              let photoURL = user.photoURL
+              var multiFactorString = "MultiFactor: "
+              for info in user.multiFactor.enrolledFactors {
+                multiFactorString += info.displayName ?? "[DispayName]"
+                multiFactorString += " "
+              }
+              // ...
+            }
+        }
     }
     
     // MARK: - Helpers
@@ -99,6 +120,7 @@ final class RegionsViewController: BaseViewController {
                 self.dismiss(animated: true, completion: {
                     self.tableDataSource.items = data.regions ?? []
                     self.tableDelegate.items = data.regions ?? []
+                    self.tableDelegate.delegate = self.delegate
                     self.tableView.reloadData()
                 })
             }, onError: { [weak self] error in
@@ -151,11 +173,5 @@ final class RegionsViewController: BaseViewController {
         tableView.delegate = tableDelegate
         
         tableView.register(cellType: RegionsTableViewCell.self)
-    }
-}
-
-extension RegionsViewController: RegionsViewControllerDelegate {
-    func regionsViewControllerDidSelectRegion(with url: String, and name: String) {
-        delegate?.regionsViewControllerDidSelectRegion(with: url, and: name)
     }
 }

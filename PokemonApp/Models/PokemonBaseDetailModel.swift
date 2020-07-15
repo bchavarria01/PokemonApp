@@ -14,4 +14,8 @@ struct PokemonBaseDetailModel {
     let baseHappiness: String
     let captureRate: String
     let generation: String
+    let eggGroups: String
+    let growthRate: String
+    let habitat: String
+    let shape: String
 }

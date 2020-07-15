@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Presentr
 
 final class WelcomeCoordinator: Coordinator {
     var presenter: UINavigationController
@@ -16,10 +17,8 @@ final class WelcomeCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     
     func start() {
-        let controller = RegionsViewController()
+        let controller = LoginViewController()
         controller.delegate = self
-        let service = PokemonServices()
-        controller.viewModel = RegionsViewModel(pokemonService: service)
         presenter.pushViewController(controller, animated: true)
     }
     
@@ -30,7 +29,25 @@ final class WelcomeCoordinator: Coordinator {
     }
 }
 
-extension WelcomeCoordinator: RegionsViewDelegate {
+extension WelcomeCoordinator: LoginViewControllerDelegate {
+    func loginViewControllerDidSingInSuccess() {
+        let controller = RegionsViewController()
+        controller.delegate = self
+        let service = PokemonServices()
+        controller.viewModel = RegionsViewModel(pokemonService: service)
+        presenter.pushViewController(controller, animated: true)
+    }
+    
+    func loginViewControllerDidSingUpSuccess() {
+        let controller = RegionsViewController()
+        controller.delegate = self
+        let service = PokemonServices()
+        controller.viewModel = RegionsViewModel(pokemonService: service)
+        presenter.pushViewController(controller, animated: true)
+    }
+}
+
+extension WelcomeCoordinator: RegionsViewControllerDelegate {
     func regionsViewControllerDidSelectRegion(with regionUrl: String, and name: String) {
         let controller = PokemonsViewController.instantiate()
         let service = PokemonServices()

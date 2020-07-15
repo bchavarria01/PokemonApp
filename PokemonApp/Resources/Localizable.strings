@@ -16,3 +16,7 @@
 "pokemonCaptureRate" = "Capture rate: ";
 "pokemonGeneration" = "Generation: ";
 "getHabitatInformation" = "Geting habitat information";
+"pokemonEggGroups" = "Egg groups: ";
+"pokemonGrowthRate" = "Growth rate: ";
+"pokemonHabitat" = "Habitat: ";
+"pokemonShape" = "Shape: ";

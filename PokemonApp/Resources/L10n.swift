@@ -29,10 +29,18 @@ internal enum L10n {
   internal static let pokemonBaseHappiness = L10n.tr("Localizable", "pokemonBaseHappiness")
   /// Capture rate: 
   internal static let pokemonCaptureRate = L10n.tr("Localizable", "pokemonCaptureRate")
+  /// Egg groups: 
+  internal static let pokemonEggGroups = L10n.tr("Localizable", "pokemonEggGroups")
   /// Generation: 
   internal static let pokemonGeneration = L10n.tr("Localizable", "pokemonGeneration")
+  /// Growth rate: 
+  internal static let pokemonGrowthRate = L10n.tr("Localizable", "pokemonGrowthRate")
+  /// Habitat: 
+  internal static let pokemonHabitat = L10n.tr("Localizable", "pokemonHabitat")
   /// Pokemon name: 
   internal static let pokemonName = L10n.tr("Localizable", "pokemonName")
+  /// Shape: 
+  internal static let pokemonShape = L10n.tr("Localizable", "pokemonShape")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

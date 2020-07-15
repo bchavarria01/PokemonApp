@@ -18,8 +18,11 @@
 		C820A7B023FCD1A8002EC875 /* RegionsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C820A7AF23FCD1A8002EC875 /* RegionsViewControllerDelegate.swift */; };
 		C845797624B3E92800C45FD8 /* PokemonDetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C845797524B3E92800C45FD8 /* PokemonDetailResponseModel.swift */; };
 		C847885224B6C47A0028F527 /* HabitatResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C847885124B6C47A0028F527 /* HabitatResponseModel.swift */; };
-		C855AABA24B1403B0038E69B /* RegionsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855AAB924B1403B0038E69B /* RegionsViewDelegate.swift */; };
 		C855AABD24B16E370038E69B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855AABC24B16E370038E69B /* Extensions.swift */; };
+		C86680DD24BB87C000EBA0C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C86680DC24BB87C000EBA0C0 /* GoogleService-Info.plist */; };
+		C86680E024BB8E9F00EBA0C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86680DF24BB8E9F00EBA0C0 /* LoginViewController.swift */; };
+		C86680E224BBCFCC00EBA0C0 /* UIViewController+keyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86680E124BBCFCC00EBA0C0 /* UIViewController+keyboardHandling.swift */; };
+		C86680E424BBD95800EBA0C0 /* LoginViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86680E324BBD95800EBA0C0 /* LoginViewControllerDelegate.swift */; };
 		C88C25DB240AA83000CFAEA7 /* PokemonServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C25DA240AA83000CFAEA7 /* PokemonServices.swift */; };
 		C88C25DE240AAA9400CFAEA7 /* PokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C25DD240AAA9400CFAEA7 /* PokemonDetailViewController.swift */; };
 		C8AB51DB23F258BF00B0EF2E /* PokemonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AB51DA23F258BF00B0EF2E /* PokemonsViewController.swift */; };
@@ -71,8 +74,11 @@
 		C820A7AF23FCD1A8002EC875 /* RegionsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		C845797524B3E92800C45FD8 /* PokemonDetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailResponseModel.swift; sourceTree = "<group>"; };
 		C847885124B6C47A0028F527 /* HabitatResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitatResponseModel.swift; sourceTree = "<group>"; };
-		C855AAB924B1403B0038E69B /* RegionsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsViewDelegate.swift; sourceTree = "<group>"; };
 		C855AABC24B16E370038E69B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C86680DC24BB87C000EBA0C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C86680DF24BB8E9F00EBA0C0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C86680E124BBCFCC00EBA0C0 /* UIViewController+keyboardHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+keyboardHandling.swift"; sourceTree = "<group>"; };
+		C86680E324BBD95800EBA0C0 /* LoginViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerDelegate.swift; sourceTree = "<group>"; };
 		C88C25DA240AA83000CFAEA7 /* PokemonServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonServices.swift; sourceTree = "<group>"; };
 		C88C25DD240AAA9400CFAEA7 /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
 		C8AB51DA23F258BF00B0EF2E /* PokemonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonsViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +161,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C86680DE24BB8E1A00EBA0C0 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C86680DF24BB8E9F00EBA0C0 /* LoginViewController.swift */,
+				C86680E324BBD95800EBA0C0 /* LoginViewControllerDelegate.swift */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
 		C88C25DC240AA8A400CFAEA7 /* PokemonDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +217,7 @@
 		C8B892CD23AECB8100C46A69 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C86680DE24BB8E1A00EBA0C0 /* LoginViewController */,
 				C88C25DC240AA8A400CFAEA7 /* PokemonDetailViewController */,
 				C8AB51D923F2587700B0EF2E /* PokemonsViewController */,
 				C8E7FE1323EF606F006D1C05 /* RegionsViewController */,
@@ -350,6 +366,7 @@
 				C8DC40A122F6688A007E7151 /* AppDelegate.swift */,
 				C8DC40AC22F6688B007E7151 /* LaunchScreen.storyboard */,
 				C8DC40AF22F6688B007E7151 /* Info.plist */,
+				C86680DC24BB87C000EBA0C0 /* GoogleService-Info.plist */,
 				C8B892D623AECC1700C46A69 /* Library */,
 				C8B892D123AECBDE00C46A69 /* Models */,
 				C8B892CF23AECBBD00C46A69 /* Navigation */,
@@ -368,7 +385,6 @@
 			isa = PBXGroup;
 			children = (
 				C8044D1A24B23AF1000C5E55 /* RegionsViewModel.swift */,
-				C855AAB924B1403B0038E69B /* RegionsViewDelegate.swift */,
 				C8E7FE2C23F19F40006D1C05 /* RegionsViewController.swift */,
 				C820A7AF23FCD1A8002EC875 /* RegionsViewControllerDelegate.swift */,
 				C8E7FE2E23F19F6B006D1C05 /* RegionsViewControllerTableDataSource.swift */,
@@ -389,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				C8E7FE2223EF699D006D1C05 /* NSMutableAttributedString+helpers.swift */,
+				C86680E124BBCFCC00EBA0C0 /* UIViewController+keyboardHandling.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,7 +439,7 @@
 				C8DC409A22F6688A007E7151 /* Sources */,
 				C8DC409B22F6688A007E7151 /* Frameworks */,
 				C8DC409C22F6688A007E7151 /* Resources */,
-				F4B1402376B4724B1D8FE18F /* [CP] Embed Pods Frameworks */,
+				8FD424B88CBEF11FF4CFE42E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -472,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8B892DC23AED14600C46A69 /* Colors.xcassets in Resources */,
+				C86680DD24BB87C000EBA0C0 /* GoogleService-Info.plist in Resources */,
 				C8D239A123FE1CFB004B409E /* PokemonsViewController.storyboard in Resources */,
 				C8E7FE2B23F19A2B006D1C05 /* RegionsTableViewCell.xib in Resources */,
 				C8DC40AE22F6688B007E7151 /* LaunchScreen.storyboard in Resources */,
@@ -484,7 +502,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F4B1402376B4724B1D8FE18F /* [CP] Embed Pods Frameworks */ = {
+		8FD424B88CBEF11FF4CFE42E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -538,6 +556,7 @@
 				C8044D1B24B23AF1000C5E55 /* RegionsViewModel.swift in Sources */,
 				C8AB51DB23F258BF00B0EF2E /* PokemonsViewController.swift in Sources */,
 				C8E7FE3123F1A05A006D1C05 /* RegionsViewControllerTableDelegate.swift in Sources */,
+				C86680E224BBCFCC00EBA0C0 /* UIViewController+keyboardHandling.swift in Sources */,
 				C88C25DB240AA83000CFAEA7 /* PokemonServices.swift in Sources */,
 				C820A7B023FCD1A8002EC875 /* RegionsViewControllerDelegate.swift in Sources */,
 				C8E7FE2323EF699D006D1C05 /* NSMutableAttributedString+helpers.swift in Sources */,
@@ -556,9 +575,10 @@
 				C8E59E1924B6BAFC00DB7256 /* PokemonDetailViewControllerCollectionDelegate.swift in Sources */,
 				C8B892E723AED43400C46A69 /* K.swift in Sources */,
 				C8044D2124B2555B000C5E55 /* PokemonsViewModel.swift in Sources */,
+				C86680E424BBD95800EBA0C0 /* LoginViewControllerDelegate.swift in Sources */,
 				C8E59E1724B6B9F800DB7256 /* PokemonDetailViewControllerCollectionDataSource.swift in Sources */,
 				C8E7FE1723EF60FF006D1C05 /* ApplicationCoordinator.swift in Sources */,
-				C855AABA24B1403B0038E69B /* RegionsViewDelegate.swift in Sources */,
+				C86680E024BB8E9F00EBA0C0 /* LoginViewController.swift in Sources */,
 				C88C25DE240AAA9400CFAEA7 /* PokemonDetailViewController.swift in Sources */,
 				C8B32AA223ECE84400665B98 /* PokemonResponse.swift in Sources */,
 				C8DC40A222F6688A007E7151 /* AppDelegate.swift in Sources */,
@@ -715,7 +735,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = bch.PokemonApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bch.pokemonApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -735,7 +755,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = bch.PokemonApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bch.pokemonApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

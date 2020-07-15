@@ -105,43 +105,57 @@ final class PokemonDetailViewController: BaseViewController {
     }
     
     private func setupInforamation(with data: PokemonDetailResponseModel) {
+        var eggGroups: String = ""
+        data.eggGroups?.forEach { eggGroup in
+            eggGroups += " \(eggGroup.name ?? ""),"
+        }
         let pokemonBaseDetailModel = PokemonBaseDetailModel(
             pokemonImageUrl: self.pokemonImageUrl ?? "",
             pokemonName: data.name ?? "",
             baseHappiness: String(data.baseHappiness ?? 0),
             captureRate: String(data.captureRate ?? 0),
-            generation: String(data.generation?.name ?? "")
+            generation: String(data.generation?.name ?? ""),
+            eggGroups: String(eggGroups.dropLast().dropFirst()),
+            growthRate: data.growthRate?.name ?? "",
+            habitat: data.habitat?.name ?? "",
+            shape:  data.shape?.name ?? ""
         )
-        self.headerView.backgroundColor = data.color?.name?.getColorByPokemonColor()
-        self.habitatCollectionView.backgroundColor = data.color?.name?.getColorByPokemonColor()
-        self.view.backgroundColor = UIColor(named: (data.color?.name?.capitalizingFirstLetter())!)
+        self.headerView.layer.borderWidth = 1
         self.headerView.setupHeaderContent(with: pokemonBaseDetailModel)
-        self.habitatLabel.text = "Pokemons from habitat: \(data.habitat?.name ?? "")"
+        self.headerView.backgroundColor = data.color?.name?.getColorByPokemonColor()
+        self.headerView.layer.borderColor = UIColor(named: (data.color?.name?.capitalizingFirstLetter())!)?.cgColor
+        self.habitatCollectionView.backgroundColor = data.color?.name?.getColorByPokemonColor()
+        self.habitatCollectionView.layer.borderWidth = 1
+        self.habitatCollectionView.layer.borderColor = UIColor(named: (data.color?.name?.capitalizingFirstLetter())!)?.cgColor
+        self.habitatLabel.text = "Pokemons from habitat: "
+        
         self.bindCollectionInformation(using: data.habitat?.url ?? "")
     }
     
     private func bindCollectionInformation(using habitatUrl: String) {
-        showLoading(L10n.getHabitatInformation)
-        viewModel.getHabitatInformation(with: habitatUrl)
-            .subscribe(
-                onSuccess: { [weak self] data in
-                    guard let self = self else { return }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                        self.dismiss(animated: true, completion: {
-                            self.collectionDelegate.items = data.pokemonSpecies!
-                            self.collectionDataSource.items = data.pokemonSpecies!
-                            self.habitatCollectionView.reloadData()
+        if habitatUrl != "" {
+            showLoading(L10n.getHabitatInformation)
+            viewModel.getHabitatInformation(with: habitatUrl)
+                .subscribe(
+                    onSuccess: { [weak self] data in
+                        guard let self = self else { return }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                            self.dismiss(animated: true, completion: {
+                                self.collectionDelegate.items = data.pokemonSpecies!
+                                self.collectionDataSource.items = data.pokemonSpecies!
+                                self.habitatCollectionView.reloadData()
+                            })
                         })
-                    })
-                }, onError: { [weak self] error in
-                    guard let self = self else { return }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                        self.dismiss(animated: true, completion: {
-                            self.showActionMessage(title: L10n.error, message: error.localizedDescription)
-                            print(error.localizedDescription)
+                    }, onError: { [weak self] error in
+                        guard let self = self else { return }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                            self.dismiss(animated: true, completion: {
+                                self.showActionMessage(title: L10n.error, message: error.localizedDescription)
+                                print(error.localizedDescription)
+                            })
                         })
-                    })
-            }).disposed(by: disposeBag)
+                }).disposed(by: disposeBag)
+        }
     }
     
     private func setupLayout() {
@@ -168,7 +182,6 @@ final class PokemonDetailViewController: BaseViewController {
             headerView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             headerView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.70),
-            headerView.widthAnchor.constraint(equalToConstant: 350),
             
             habitatLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 8),
             habitatLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),

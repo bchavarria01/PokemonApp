@@ -96,7 +96,7 @@ final class PokemonsViewController: BaseViewController, StoryboardBased {
         setupLayout()
         bindViewModel()
         setupCollectionView()
-        titleLabel.text = self.regionName!
+        titleLabel.text = self.regionName?.capitalizingFirstLetter()
         
         var image: UIImage {
             switch regionName {
